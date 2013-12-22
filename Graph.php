@@ -23,6 +23,9 @@ class Graph extends Panel
     protected $type = "bar";
     protected $datasequences = array();
 
+    protected $errorMessage = "";
+    protected $errorDescription = "";
+
     protected $xaxis = null;
     protected $yaxis = null;
 
@@ -205,11 +208,13 @@ class Graph extends Panel
         $tmp->refreshEveryNSeconds = $this->getRefresh();
         $tmp->xAxis = $this->xaxis->__toJson();
         $tmp->yAxis = $this->yaxis->__toJson();
-        /* * /
-                $tmp->error = new \stdClass();
-                $tmp->error->message= " oh no";
-                $tmp->error->detail = " Broken";
-        /* */
+
+        if ($this->errorMessage !== "") {
+            $tmp->error = new \stdClass();
+            $tmp->error->message = $this->errorMessage;
+            $tmp->error->detail = $this->errorDescription;
+        }
+
         if ($this->getShowTotals()) {
             $tmp->total = true;
         }
