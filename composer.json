@@ -19,7 +19,6 @@
 
     "autoload": {
         "psr-0": { "Statusboard\\": "src" }
-    },
+    }
 
-    "target-dir" : "Statusboard"
 }
