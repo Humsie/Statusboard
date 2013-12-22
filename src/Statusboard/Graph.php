@@ -29,8 +29,12 @@ class Graph extends Panel
     protected $xaxis = null;
     protected $yaxis = null;
 
-    public function __construct()
+    public function __construct($title = null)
     {
+        if (is_null($title) === false) {
+            $this->setTitle($title);
+        }
+
         $this->xaxis = new Axis(Axis::AXIS_X);
         $this->yaxis = new Axis(Axis::AXIS_Y);
     }

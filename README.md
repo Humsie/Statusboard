@@ -7,7 +7,6 @@ Statusboard gives you a collection of generic classes to display (custom) conten
 ### Manual
 
 Download and code and make sure you psr-0 autoloading is correctly setup.
-Root namespace is Statusboard\*
 
 ### Composer
 
