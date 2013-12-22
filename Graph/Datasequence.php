@@ -1,9 +1,9 @@
 <?php
 
-namespace Humsie\Statusboard\Graph;
+namespace Statusboard\Graph;
 
-use Humsie\Statusboard\Exceptions\IdentifierAlreadyExistsException;
-use Humsie\Statusboard\Exceptions\IdentifierNotFoundException;
+use Statusboard\Exceptions\IdentifierAlreadyExistsException;
+use Statusboard\Exceptions\IdentifierNotFoundException;
 
 class Datasequence
 {

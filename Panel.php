@@ -1,6 +1,6 @@
 <?php
 
-namespace Humsie\Statusboard;
+namespace Statusboard;
 
 class Panel
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Humsie\Statusboard\Exceptions;
+namespace Statusboard\Exceptions;
 
 
 class IdentifierAlreadyExistsException extends \Exception

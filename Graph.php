@@ -4,16 +4,16 @@
  *
  * @author  Humsie <github@tha-humise.com>
  */
-namespace Humsie\Statusboard;
+namespace Statusboard;
 
-use Humsie\Statusboard\Graph\Axis;
-use Humsie\Statusboard\Exceptions\IdentifierNotFoundException;
-use Humsie\Statusboard\Exceptions\IdentifierAlreadyExistsException;
+use Statusboard\Graph\Axis;
+use Statusboard\Exceptions\IdentifierNotFoundException;
+use Statusboard\Exceptions\IdentifierAlreadyExistsException;
 
 /**
  * Class Graph
  *
- * @package Humsie\Statusboard
+ * @package Statusboard
  */
 class Graph extends Panel
 {

@@ -2,7 +2,7 @@
     "minimum-stability": "dev",
 
     "name": "humsie/statusboard",
-    "description": "Panel classes for Panic Statusboard",
+    "description": "Panel classes for Panic Status board",
 
     "authors": [
         {
@@ -18,7 +18,7 @@
     },
 
     "autoload": {
-        "psr-0": { "Humsie\\Statusboard": "" }
+        "psr-0": { "Statusboard\\": "src" }
     },
 
     "target-dir" : "Statusboard"

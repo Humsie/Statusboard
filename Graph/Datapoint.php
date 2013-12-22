@@ -1,6 +1,6 @@
 <?php
 
-namespace Humsie\Statusboard\Graph;
+namespace Statusboard\Graph;
 
 class Datapoint
 {
