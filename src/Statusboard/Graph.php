@@ -15,7 +15,7 @@ use Statusboard\Exceptions\IdentifierAlreadyExistsException;
  *
  * @package Statusboard
  */
-class Graph extends Panel
+class Graph
 {
     protected $title = "";
     protected $refresh = 120;
@@ -183,6 +183,7 @@ class Graph extends Panel
 
 
     /** GETTERS **/
+
     public function getType()
     {
         return $this->type;
@@ -198,20 +199,26 @@ class Graph extends Panel
         return $this->title;
     }
 
-
     public function getRefresh()
     {
         return $this->refresh;
     }
 
-    public function __toJson()
+    public function getOutput()
+    {
+        return json_encode(array("graph" => $this->jsonSerialize()));
+    }
+
+
+    /** Implementation of JsonSerializable */
+    public function jsonSerialize()
     {
         $tmp = new \stdClass();
 
         $tmp->title = $this->getTitle();
         $tmp->refreshEveryNSeconds = $this->getRefresh();
-        $tmp->xAxis = $this->xaxis->__toJson();
-        $tmp->yAxis = $this->yaxis->__toJson();
+        $tmp->xAxis = $this->xaxis->jsonSerialize();
+        $tmp->yAxis = $this->yaxis->jsonSerialize();
 
         if ($this->errorMessage !== "") {
             $tmp->error = new \stdClass();
@@ -227,13 +234,9 @@ class Graph extends Panel
         }
         $tmp->datasequences = array();
         foreach ($this->datasequences as $dataseuence) {
-            array_push($tmp->datasequences, $dataseuence->__toJson());
+            array_push($tmp->datasequences, $dataseuence->jsonSerialize());
         }
         return $tmp;
     }
 
-    public function output()
-    {
-        return json_encode(array("graph" => $this->__toJson()));
-    }
 }

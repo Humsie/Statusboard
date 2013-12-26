@@ -110,7 +110,7 @@ class Axis
         return ($this->axis === $axis);
     }
 
-    public function __toJson()
+    public function jsonSerialize()
     {
         $tmp = new \stdClass();
 

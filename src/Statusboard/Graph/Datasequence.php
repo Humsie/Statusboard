@@ -49,6 +49,44 @@ class Datasequence
         return $this;
     }
 
+    /**
+     * Set Datapoints from one associative array or two sequential arrays,
+     *  - 1 Associative array should be in the form array("title" => value)
+     *  - 2 sequential arrays, the first containing the titles, the second the values
+     *
+     * @param $titles sequential array containing titles or an associative array.
+     * @param null $values sequential array containing values
+     * @throws \InvalidArgumentException
+     */
+    public function setFromArray(array $titles , array $values = null)
+    {
+        if (!is_array($values)) {
+            throw new \InvalidArgumentException("values must be an array");
+        }
+        if ( !is_array($titles) && !is_null($titles) ) {
+            throw new \InvalidArgumentException("keys must be null or an array");
+        }
+
+        if (!is_null($titles)) {
+            if (count($values) != count($titles)) {
+                throw new \InvalidArgumentException("values and keys aren't same length");
+            }
+        }
+
+        $this->datapoints = array();
+        foreach($values as $key => $value)
+        {
+            if (!(is_null($titles) ? true : isset($titles[$key]))) {
+                throw new \InvalidArgumentException("Index {$key} not found in keys");
+            }
+            $title = (is_null($titles) ? $key : $titles[$key]);
+            $this->newDatapoint(
+                (is_null($titles) ? $key : $titles[$key]),
+                $value
+            );
+        }
+
+    }
 
     public function getSort()
     {
@@ -64,6 +102,7 @@ class Datasequence
     {
         return $this->title;
     }
+
 
     public function newDatapoint($strTitle, $fltValue)
     {
@@ -97,7 +136,7 @@ class Datasequence
         throw new IdentifierNotFoundException("datapoint {$identifier} does not exist");
     }
 
-    public function __toJson()
+    public function jsonSerialize()
     {
         $tmp = new \stdClass();
         $tmp->title = $this->getTitle();
@@ -111,7 +150,7 @@ class Datasequence
         }
 
         foreach ($datapoints as $datapoint) {
-            array_push($tmp->datapoints, $datapoint->__toJson());
+            array_push($tmp->datapoints, $datapoint->jsonSerialize());
         }
         return $tmp;
     }

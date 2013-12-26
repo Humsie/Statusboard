@@ -4,6 +4,8 @@
     "name": "humsie/statusboard",
     "description": "Panel classes for Panic Status board",
 
+    "keywords": [ "panic" "status", "board", "statusboard", "panel", "widget" ],
+
     "authors": [
         {
             "name": "Humsie",
