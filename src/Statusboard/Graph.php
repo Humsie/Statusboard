@@ -75,12 +75,12 @@ class Graph
 
         if ($after !== false) {
             if (is_string($after)) {
-                if (array_key_exists($after, $this->datasequences)===false) {
+                if (array_key_exists($after, $this->datasequences) === false) {
                     throw new IdentifierNotFoundException("Datasequence {$after} to add after is not found");
                 }
                 $after = array_search($after, array_keys($this->datasequences));
             }
-            if (is_int($after)===false) {
+            if (is_int($after) === false) {
                 // String check is done by above code
                 throw new \InvalidArgumentException("parameter after should be an integer or string");
             }
@@ -88,14 +88,14 @@ class Graph
                 array_slice(
                     $this->datasequences,
                     0,
-                    $after+1
+                    $after + 1
                 ),
                 array(
                     $identifier => $datasequence
                 ),
                 array_slice(
                     $this->datasequences,
-                    $after+1
+                    $after + 1
                 )
             );
 
@@ -238,5 +238,4 @@ class Graph
         }
         return $tmp;
     }
-
 }

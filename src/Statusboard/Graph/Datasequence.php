@@ -58,12 +58,12 @@ class Datasequence
      * @param null $values sequential array containing values
      * @throws \InvalidArgumentException
      */
-    public function setFromArray(array $titles , array $values = null)
+    public function setFromArray(array $titles, array $values = null)
     {
         if (!is_array($values)) {
             throw new \InvalidArgumentException("values must be an array");
         }
-        if ( !is_array($titles) && !is_null($titles) ) {
+        if (!is_array($titles) && !is_null($titles)) {
             throw new \InvalidArgumentException("keys must be null or an array");
         }
 
@@ -74,8 +74,7 @@ class Datasequence
         }
 
         $this->datapoints = array();
-        foreach($values as $key => $value)
-        {
+        foreach ($values as $key => $value) {
             if (!(is_null($titles) ? true : isset($titles[$key]))) {
                 throw new \InvalidArgumentException("Index {$key} not found in keys");
             }

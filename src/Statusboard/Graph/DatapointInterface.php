@@ -9,7 +9,8 @@
 namespace Statusboard\Graph;
 
 
-interface DatapointInterface {
+interface DatapointInterface
+{
 
     /**
      * Return title as string
@@ -24,5 +25,4 @@ interface DatapointInterface {
      * @return float value
      */
     public function getValue();
-
-} 
+}

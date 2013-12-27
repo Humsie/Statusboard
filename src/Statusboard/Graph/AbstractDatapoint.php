@@ -9,7 +9,8 @@
 namespace Statusboard\Graph;
 
 
-abstract class AbstractDatapoint implements DatapointInterface {
+abstract class AbstractDatapoint implements DatapointInterface
+{
 
     protected $title = "";
     protected $value = 0.0;
@@ -47,5 +48,4 @@ abstract class AbstractDatapoint implements DatapointInterface {
         return $tmp;
 
     }
-
-} 
+}
