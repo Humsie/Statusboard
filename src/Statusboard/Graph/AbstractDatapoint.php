@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: humsie
- * Date: 24-12-13
- * Time: 20:30
- */
 
 namespace Statusboard\Graph;
-
 
 abstract class AbstractDatapoint implements DatapointInterface
 {
